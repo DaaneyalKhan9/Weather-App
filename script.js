@@ -1,12 +1,12 @@
-const apiKey = '6604d65fedc1c7273184507ba41e5b9b'; // Your OpenWeather API key
+const apiKey = '6604d65fedc1c7273184507ba41e5b9b'; // My OpenWeather API key
 
-// Function to get current weather data and hourly forecast based on city name
+// Function to get current weather data and hourly forecast
 function getWeather() {
   const city = document.getElementById('city-input').value; // Get the city from the input field
   const currentWeatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKey}`;
   const forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&units=metric&appid=${apiKey}`;
 
-  // Fetch the current weather data from the OpenWeather API
+  // Get the current weather data from the OpenWeather API
   fetch(currentWeatherUrl)
     .then(response => response.json())
     .then(data => {
@@ -15,7 +15,6 @@ function getWeather() {
         return;
       }
 
-      // Update the weather information on the page
       document.getElementById('city-name').innerText = data.name;
       document.getElementById('temperature').innerText = `${Math.round(data.main.temp)}°C`;
       document.getElementById('description').innerText = data.weather[0].description; // Weather description
@@ -25,12 +24,12 @@ function getWeather() {
       document.getElementById('description').style.display = 'block';
       document.getElementById('icon').style.display = 'block';
 
-      // Fetch the hourly forecast data from the OpenWeather API
+      // Get the hourly forecast data from the OpenWeather API
       return fetch(forecastUrl);
     })
     .then(response => response.json())
     .then(data => {
-      const hourlyData = data.list.slice(0, 8); // Get the next 8 periods
+      const hourlyData = data.list.slice(0, 8); // Get the next 8 hours of weather data
       displayHourlyForecast(hourlyData); // Function to display the hourly data
     })
     .catch(error => {
@@ -39,9 +38,9 @@ function getWeather() {
     });
 }
 
-// Event listener for Enter key on the input field
+// Allows user to use Enter button to search
 document.getElementById('city-input').addEventListener('keydown', function(event) {
-  if (event.key === 'Enter') { // Check if the pressed key is Enter
+  if (event.key === 'Enter') { 
     console.log("Enter key pressed"); // Debugging line
     event.preventDefault(); // Prevent default form submission
     getWeather(); // Call the getWeather function
@@ -50,7 +49,7 @@ document.getElementById('city-input').addEventListener('keydown', function(event
 
 // Function to display hourly forecast
 function displayHourlyForecast(hourlyData) {
-  const forecastContainer = document.querySelector('.hourly-forecast'); // Updated to use class selector
+  const forecastContainer = document.querySelector('.hourly-forecast'); 
   
   // Clear previous content
   forecastContainer.innerHTML = '';
@@ -61,7 +60,6 @@ function displayHourlyForecast(hourlyData) {
     const temp = Math.round(hour.main.temp);
     const iconUrl = `http://openweathermap.org/img/wn/${hour.weather[0].icon}.png`; // Get weather icon URL
 
-    // Create an HTML element for each hour without weather description
     const hourlyItem = `
       <div class="hour">
         <p>${time}</p>
@@ -70,7 +68,6 @@ function displayHourlyForecast(hourlyData) {
       </div>
     `;
 
-    // Add each hourly forecast to the container
     forecastContainer.innerHTML += hourlyItem;
   });
 
