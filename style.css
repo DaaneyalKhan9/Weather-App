@@ -1,0 +1,120 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure the html and body take full height of the viewport */
+html, body {
+    height: 100%;
+    margin: 0;
+    background-color: #8a92e7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Weather app box */
+.weather-box {
+    background-color: #8a92e7;
+    padding: 40px 60px;
+    border-radius: 20px;
+    box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.8);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Setting description color to match with other content colors*/
+#description {
+    color: white;
+}
+
+/* Input box styling */
+input[type="text"] {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    border: 2px solid #ffffff;
+    border-radius: 8px;
+    outline: none;
+}
+
+/* Button styling */
+button {
+    background-color: #5c64bb;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+button:hover {
+    background-color: #434989;
+    color: #ffffff;
+}
+
+/* City name styling */
+#city-name {
+    font-size: 2.5em;
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+/* Temperature styling */
+#temperature {
+    font-size: 4em;
+    color: #ffffff;
+}
+
+/* Styling for the hourly forecast container */
+.hourly-forecast {
+    display: flex;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    padding: 15px 0;
+    margin-top: 20px;
+    gap: 20px;
+    width: 100%;
+    max-width: 400px; /* Limit width to prevent overflow */
+    padding-left: 20px;
+    scroll-snap-type: x mandatory;
+}
+
+.hour {
+    flex: 0 0 auto;
+    text-align: center;
+    min-width: 80px;
+    scroll-snap-align: start;
+    color: white;
+}
+
+/* Hide the scrollbar */
+.hourly-forecast::-webkit-scrollbar {
+    display: none;
+}
+
+.hourly-forecast {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+
+
+  
+  
+
+  
+  
+ 

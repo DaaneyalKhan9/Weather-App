@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to the CSS file -->
+</head>
+<body>
+  <div class="weather-container">
+    <div class="weather-box">
+      <input type="text" id="city-input" placeholder="Enter city name" />
+      <button onclick="getWeather()">Search</button>
+      <h1 id="city-name" style="display: none;"></h1>
+      <p id="temperature" style="display: none;">--°C</p>
+      <p id="description" style="display: none;"></p> <!-- Weather description like 'Sunny' -->
+      <img id="icon" style="display: none;" alt="Weather icon" /> <!-- Weather icon -->
+      <div class="hourly-forecast">  <!-- Updated Hourly Forecast Section -->
+        <div class="hour" id="hour1"></div>
+        <div class="hour" id="hour2"></div>
+        <div class="hour" id="hour3"></div>
+        <div class="hour" id="hour4"></div>
+        <div class="hour" id="hour5"></div>
+        <div class="hour" id="hour6"></div>
+        <div class="hour" id="hour7"></div>
+        <div class="hour" id="hour8"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script> <!-- Link to the JS file -->
+</body>
+</html>
